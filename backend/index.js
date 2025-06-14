@@ -4,6 +4,10 @@ const bodyParser = require('body-parser')
 
 const app = express();
 
+const corsOptions = {
+    origin: 'https://oop-todoapp.vercel.app/'
+}
+
 app.use(cors());
 app.use(bodyParser.json());
 
