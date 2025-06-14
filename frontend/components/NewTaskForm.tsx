@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import { type FC, type FormEvent, useState } from "react";
 
-export default function NewTaskForm({ projectId, onAddTask }) {
+interface NewTaskFormProps {
+  projectId: number,
+  onAddTask: (title: string, projectId: number) => void,
+}
+
+const NewTaskForm: FC<NewTaskFormProps> = ({ projectId, onAddTask }) => {
   const [title, setTitle] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!title.trim()) return;
     onAddTask(title, projectId);
@@ -22,3 +27,5 @@ export default function NewTaskForm({ projectId, onAddTask }) {
     </form>
   );
 }
+
+export default NewTaskForm

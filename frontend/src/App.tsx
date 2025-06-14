@@ -3,27 +3,27 @@ import { useEffect, useState } from "react";
 import NewProjectForm from '../components/NewProjectForm'
 import ProjectList from '../components/ProjectList'
 
-type Project = {
+export type Project = {
   id: number
   name: string
   userId: number
 }
 
-type Task = {
+export type Task = {
   id: number
   title: string
   completed: boolean
   projectId: number
 }
 
-type User = {
+export type User = {
   id: number
   name: string
   email: string
 }
 
 
-const API = "https://oop-todoapp-backend.vercel.app";
+const API = "http://localhost:3000";
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);

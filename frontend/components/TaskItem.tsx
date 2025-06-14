@@ -1,6 +1,13 @@
-import React from "react";
+import type { FC } from "react";
+import type { Task } from "../src/App";
 
-export default function TaskItem({ task, onToggle, onDelete }) {
+interface TaskItemProps {
+  task: Task
+  onToggle: (task: Task) => void
+  onDelete: (id: number) => void
+}
+
+const TaskItem: FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
   return (
     <li className={`task-item ${task.completed ? "completed" : ""}`}>
       <span onClick={() => onToggle(task)}>{task.title}</span>
@@ -8,3 +15,5 @@ export default function TaskItem({ task, onToggle, onDelete }) {
     </li>
   );
 }
+
+export default TaskItem

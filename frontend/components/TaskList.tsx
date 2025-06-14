@@ -1,7 +1,14 @@
-import React from "react";
+import type { FC } from "react";
 import TaskItem from "./TaskItem";
+import type { Task } from "../src/App";
 
-export default function TaskList({ tasks, onToggleTask, onDeleteTask }) {
+interface TaskListProps {
+  tasks: Array<Task>
+  onToggleTask: (task: Task) => void
+  onDeleteTask: (id: number) => void
+}
+
+const TaskList: FC<TaskListProps> = ({ tasks, onToggleTask, onDeleteTask }) => {
   return (
     <ul className="task-list">
       {tasks.map(task => (
@@ -15,3 +22,5 @@ export default function TaskList({ tasks, onToggleTask, onDeleteTask }) {
     </ul>
   );
 }
+
+export default TaskList

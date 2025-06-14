@@ -1,6 +1,17 @@
+import type { FC } from "react";
 import ProjectItem from "./ProjectItem";
+import type { Project, Task } from "../src/App";
 
-export default function ProjectList({ projects, tasks, onDeleteProject, onAddTask, onToggleTask, onDeleteTask }) {
+interface ProjectListProps {
+  projects: Array<Project>
+  tasks: Array<Task>
+  onDeleteProject: (id: number) => void
+  onToggleTask: (task: Task) => void
+  onDeleteTask: (id: number) => void
+  onAddTask: (title: string, projectId: number) => void,
+}
+
+const ProjectList: FC<ProjectListProps> = ({ projects, tasks, onDeleteProject, onAddTask, onToggleTask, onDeleteTask }) => {
   return (
     <div className="project-list">
       {projects.map((project) => (
@@ -17,3 +28,5 @@ export default function ProjectList({ projects, tasks, onDeleteProject, onAddTas
     </div>
   );
 }
+
+export default ProjectList

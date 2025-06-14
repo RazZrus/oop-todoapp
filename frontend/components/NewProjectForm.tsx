@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import { type FC, type FormEvent, useState } from "react";
 
-export default function NewProjectForm({ onAdd }) {
+interface NewProjectFormProps {
+  onAdd: (name: string) => void
+}
+
+const NewProjectForm: FC<NewProjectFormProps> = ({ onAdd }) => {
   const [name, setName] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!name.trim()) return;
     onAdd(name);
@@ -22,3 +26,5 @@ export default function NewProjectForm({ onAdd }) {
     </form>
   );
 }
+
+export default NewProjectForm
