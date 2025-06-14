@@ -23,7 +23,7 @@ type User = {
 }
 
 
-const API = "http://localhost:3000";
+const API = "https://oop-todoapp-backend.vercel.app";
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
